@@ -14,6 +14,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.todos.data.DatabaseHelper;
+
 public class TodoListActivity extends AppCompatActivity {
 
     String[] itemname ={
@@ -27,13 +29,15 @@ public class TodoListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        DatabaseHelper helper = new DatabaseHelper(this);
+        SQLiteDatabase db = helper.getReadableDatabase();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         final ListView lv=(ListView) findViewById(R.id.lvTodos);
-//adds the custom layout
+        //adds the custom layout
         lv.setAdapter(new ArrayAdapter<String>(this, R.layout.todo_list_item,
                 R.id.tvNote,itemname));
-//adds the click event to the listView, reading the content
+        //adds the click event to the listView, reading the content
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id) {

@@ -10,7 +10,7 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:tint="@color/colorIcons"
-
+        android:src="@drawable/tag_text_outline"
         />
 
     <TextView
@@ -22,7 +22,7 @@
         android:layout_margin="4dp"
         android:layout_toEndOf="@+id/imageDocIcon"
         android:layout_toRightOf="@+id/imageDocIcon"
-        android:singleLine="true"
+        android:maxLines="1"
         android:text="Dummy Text"
         android:textSize="18sp" />
 
