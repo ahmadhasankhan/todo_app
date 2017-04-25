@@ -20,6 +20,12 @@
         </activity>
         <activity android:name=".TodoActivity" />
         <activity android:name=".CategoryActivity"></activity>
+
+        <provider
+            android:authorities="com.example.todos.todosprovider"
+            android:name=".data.TodosProvider"
+            android:exported="false" />
+
     </application>
 
 </manifest>
